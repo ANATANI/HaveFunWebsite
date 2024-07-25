@@ -1,0 +1,278 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@section Styles
+{
+    <link href="~/assets/css/homepage.css" rel="stylesheet" />
+}
+<div id="homePage">
+<!-- ================> Banner section start here <================== -->
+	<div class="text-center">
+		<div id="carouselId" class="carousel slide carousel-fade" data-bs-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-bs-target="#carouselId"
+					data-bs-slide-to="0"
+					class="active"
+					aria-current="true"
+					aria-label="First slide"></li>
+				<li data-bs-target="#carouselId"
+					data-bs-slide-to="1"
+					aria-label="Second slide"></li>
+				<li data-bs-target="#carouselId"
+					data-bs-slide-to="2"
+					aria-label="Third slide"></li>
+				<li data-bs-target="#carouselId"
+					data-bs-slide-to="3"
+					aria-label="Fourth slide"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<div class="carousel-item active">
+					<img class="homePageBanner" src="assets/images/homePage/pic01.jpg"
+						 class="w-100 d-block"
+						 alt="First slide" />
+					<div class="carousel-caption d-none d-md-block">
+						<span class="bannerTitle">在這裡遇見真愛</span>
+						<p class="bannerDescript">愛情正在等待與你相遇，讓我們幫助你找到那個特別的人。</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img class="homePageBanner" src="assets/images/homePage/pic02.jpg"
+						 class="w-100 d-block"
+						 alt="Second slide" />
+					<div class="carousel-caption d-none d-md-block">
+						<span class="bannerTitle">緣分的美好邂逅</span>
+						<p class="bannerDescript">在茫茫人海中，讓我們牽引你與心靈伴侶相遇。</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img class="homePageBanner" src="assets/images/homePage/pic03.jpg"
+						 class="w-100 d-block"
+						 alt="Third slide" />
+					<div class="carousel-caption d-none d-md-block">
+						<span class="bannerTitle">浪漫的開始</span>
+						<p class="bannerDescript">每一段美好的愛情故事，從這裡開啟。</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img class="homePageBanner" src="assets/images/homePage/pic04.jpg"
+						 class="w-100 d-block"
+						 alt="Fourth slide" />
+					<div class="carousel-caption d-none d-md-block">
+						<span class="bannerTitle">嘿！交個朋友吧</span>
+						<p class="bannerDescript">來這裡遇見你此生的摯友</p>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev"
+					type="button"
+					data-bs-target="#carouselId"
+					data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next"
+					type="button"
+					data-bs-target="#carouselId"
+					data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+			@{
+				if (!User.Identity.IsAuthenticated)
+				{
+					<div class="register-btn-container">
+						<a href="/Register"><button class="default-btn" id="btnRegister">註冊</button></a>
+					</div>
+				}
+			}
+		</div>
+	</div>
+<!-- ================> Announcement section start here <================== -->
+	<div class="work work--style2 padding-top padding-bottom bg_img" style="background-image: url(assets/images/bg-img/01.jpg);">
+		<div class="container">
+			<div v-for="(anc, index) in announcement">
+				<h3>{{anc.title}}</h3>
+				<span>{{anc.startTime}}</span>
+				<p>{{anc.content}}</p>
+			</div>
+		</div>
+	</div>
+@* <div class="work padding-top padding-bottom bg_img" style="background-image: url(assets/images/bg-img/01.jpg);">
+	<div class="container">
+		<div class="section__header text-center wow fadeInUp" data-wow-duration="1.5s">
+			<h2>近期公告​</h2>
+		</div>
+		<div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
+			<div class="d-xl-flex align-items-start work__area">
+				<div class="nav flex-xl-column nav-pills me-xl-4 work__tablist" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+					<button v-for="(anc, index) in announcement" class="nav-link" :id="`work__tab${index + 1}-tab`" data-bs-toggle="pill" :data-bs-target="`#work__tab${index + 1}`" type="button" role="tab" :aria-controls="`work__tab${index + 1}`" aria-selected="true"><span>{{anc.title}}</span></button>
+						
+				</div>
+				<div class="tab-content work__tabcontent" id="v-pills-tabContent">
+					<div v-for="(anc, index) in announcement" :class="`tab-pane fade AA${index}`" :id="`work__tab${index +1}`" role="tabpanel" :aria-labelledby="`work__tab${index + 1}-tab`">
+							<div class="work__item">
+							<div class="work__inner">
+								
+								<div class="work__content">
+									<h3>{{anc.title}}</h3>
+									<h4>{{anc.startTime}}</h4>
+									<p>
+										{{anc.content}}
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> *@
+<!-- ================> Top3 Activity section start here <================== -->
+<div class="story bg_img padding-top padding-bottom" style="background-image: url(assets/images/bg-img/02.jpg);">
+	<div class="container">
+		<div class="section__header style-2 text-center wow fadeInUp" data-wow-duration="1.5s">
+			<h2>現正熱門的活動</h2>
+			<p>現在朋友們正討論這些活動，你還沒加入嗎，快來看看你是不是也很感興趣！</p>
+		</div>
+		<div class="section__wrapper wow fadeInUp" data-wow-duration="1.5s">
+			<div class="row g-4 justify-content-center row-cols-lg-3 row-cols-sm-2 row-cols-1">
+				<div v-for="act in popularAct" class="col">
+					<div class="story__item">
+						<div class="story__inner">
+							<div class="story__thumb">
+								<a :href="`/Activity/Detail/${act.id}`"><img class="actImg" :src=`/api/personalActivities/GetPicture/${act.id}?rand=${rand}`></a>
+								<span class="member__activity member__activity--ofline">最多人參加</span>
+							</div>
+							<div class="story__content">
+								<a :href="`/Activity/Detail/${act.id}`"><h4>{{act.title}}</h4></a>
+								<div class="story__content--author">
+									<div class="story__content--thumb">
+									<img class="memberPic" v-bind:src=`/api/personalActivities/GetUserProfile/${act.userId}?rand=${rand}`>
+									</div>
+									<div class="story__content--content">
+										<h6>{{act.userName}}</h6>
+										<p>{{act.time}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ================> To Match & Social Platform section start here <================== -->
+<div class="work work--style2 padding-top padding-bottom bg_img" style="background-image: url(assets/images/bg-img/01.jpg);">
+	<div class="container">
+		<div class="section__wrapper">
+			<div class="row g-4 justify-content-center">
+				<div class="col-xl-6 col-lg-8 col-12 wow fadeInLeft" data-wow-duration="1.5s">
+					<div class="work__item">
+						<div class="work__inner">
+							<div class="work__thumb">
+								<img src="assets/images/homePage/match.jpg" alt="dating thumb">
+							</div>
+							<div class="work__content">
+								<h3>右滑配對</h3>
+								<p>以標籤取向配對，讓擁有共同愛好的你們更有話聊！
+									貓派、狗派一目瞭然，再也不用猜，不怕踩到對方地雷！</p>
+								<a href="/match" class="default-btn"><span>前往配對</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-6 col-lg-8 col-12 wow fadeInRight" data-wow-duration="1.5s">
+					<div class="work__item">
+						<div class="work__inner">
+							<div class="work__thumb">
+								<img src="assets/images/homePage/social.jpg" alt="dating thumb">
+							</div>
+							<div class="work__content">
+								<h3>專屬社交頁面</h3>
+								<p>在這裡也可以輕鬆分享你的日常與暢紓你的心情，朋友們可以互相Like彼此的貼文，也可以輕鬆取得活動同行的友人。</p>
+								<a href="/Profile" class="default-btn reverse"><span>前往社群</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ================> HomeFooter section start here <================== -->
+<div class="app padding-top">
+	<div class="container">
+		<div class="row g-4 justify-content-center flex-row-reverse">
+			<div class="col-xxl-6 col-12 wow fadeInUp" data-wow-duration="1.5s">
+				<div class="app__item">
+					<div class="app__inner">
+						<div class="app__content">
+							<h2>期待與你相見</h2>
+							<p>在這裡遇見友情、愛情，讓你往後的生活不再孤單！我們誠摯地邀請起加入，一起體驗豐富美好的人生吧！</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xxl-6 col-12 wow fadeInUp" data-wow-duration="1.5s">
+				<div class="app__item">
+					<div class="app__inner">
+						<div class="app__thumb">
+							<img src="assets/images/HomePage/end.jpg" alt="dating thumb">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+@section Scripts{
+	<script>
+		const homePage = Vue.createApp({
+			data() {
+				return {
+					isLogin: null,
+					baseAddress: window.location.origin,
+					rand: 1,
+					popularAct:[],
+					announcement:[],
+				}
+			},
+			methods: {
+				//取得最熱門活動
+				getMostParticipantsActivity() {
+					const now = new Date().toUTCString();
+					fetch(`/api/Home/GetPopularActivity/${now}`)
+						.then(res => res.json())
+						.then(data => {
+							this.popularAct = data;
+						})
+						.catch(error => { console.log('fetch most participants activity failed!') });
+				},
+				//取得進行中公告
+				getAnnouncement() {
+					const now = new Date().toUTCString();
+					fetch(`/api/Home/GetAnnouncement/${now}`)
+						.then(res => res.json())
+						.then(data => {
+							this.announcement = data;
+						})
+						.catch(error => { console.log('fetch announcement failed!') });
+				},
+				fixFirstAnnouncement() {
+					const firstAnc = document.querySelector('.AA0');
+					firstAnc.classList.add('active', 'show');
+				},
+			},
+			mounted() {
+				this.getMostParticipantsActivity();
+				this.getAnnouncement();
+			 },
+			// updated() {
+			// 	this.fixFirstAnnouncement();
+			// }
+		}).mount('#homePage');
+	</script>
+}
