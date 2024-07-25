@@ -3,7 +3,7 @@
 此為截取 組員-黃滙勻 於<a href="https://havefun.azurewebsites.net/">HaveFun交友媒合平台</a> 負責之內容：網站首頁、個人活動管理、個人貼文部分功能<br><br>
 完整團體開發內容在：<a href="https://github.com/Turner-Chang/HaveFun.git">HaveFun-GitHub</a><br>
 可使用<br>
-帳號：QQQ123@tim101.com<br>
+帳號：QQ123@tim101.com<br>
 密碼：Ab123456789<br>
 登入，也可以自行註冊新帳號使用網站。<br><br>
 ※此空間中Common資料夾共用方法為組員-彭奕君均撰寫，為求自己的部分仍可運行，因此保留在此空間中。<br><br>
